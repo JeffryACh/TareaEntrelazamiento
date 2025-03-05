@@ -55,9 +55,7 @@ public:
     void BorrarFinal();
     void BorrarInicio();
     void borrarPosicion(int pos);
-    void Sumanum(int num);
     int largoLista();// retorno un valor numerico
-    void Promedio(int num);
 
 
 private:
