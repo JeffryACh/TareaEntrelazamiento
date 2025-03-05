@@ -12,13 +12,28 @@ using namespace std;
 class nodo { // Constructores
 public:
 
-
+    /*
+    * Constructor por defecto de la clase nodo, solo recibe un valor
+    * 
+    * @Param int v, es el valor del nodo
+	* 
+	* @Return none
+    */
     nodo(int v)//6  nodo(string)  nodo(int x
     {
         valor = v;
         siguiente = NULL;
     }
 
+    /*
+    * Constructor de la clase nodo, recibe un valor y un nodo
+	* 
+	* @Param int v, es el valor del nodo
+	* 
+	* @Param pnodo signodo, es el siguiente nodo
+	* 
+	* @Return none
+    */
     nodo(int v, nodo* signodo)    // nodo(nodo *signodo,int v)
     {
         valor = v;
@@ -44,7 +59,21 @@ typedef nodo* pnodo; //Alias
 class lista
 {
 public:
+    /*
+    * Constructor por defecto de la clase lista
+	* 
+	* @Param none
+	* 
+	* @Return none
+    */
     lista() { primero = NULL; }//constructor
+    /*
+    * Destructor de la clase lista
+    * 
+	* @Param none
+	* 
+	* @Return none
+    */
     ~lista();//destructor
 
     void InsertarInicio(int v);//No retornan nada
@@ -59,12 +88,12 @@ public:
 
 
 private:
-    pnodo primero;
+    pnodo primero; // Atributo de la clase
 
 };
 
 /*
-* Destructor
+* Destructor, destruye la lista
 * 
 * @Param none
 * 
@@ -335,17 +364,25 @@ void lista::Mostrar()
     }
 }
 
+
+
 int main()
 {
-    cout << "Hello World!" << endl;
+    lista l1;
+    l1.InsertarInicio(1);
+    l1.InsertarInicio(2);
+	l1.InsertarInicio(3);
+	l1.InsertarFinal(4);
+	l1.InsertarPos(5, 3);
+    l1.InsertarInicio(6);
+	l1.Mostrar();
+    lista l2;
+    l2.InsertarInicio(7);
+    l2.InsertarFinal(8);
+    l2.InsertarInicio(9);
+    l2.InsertarFinal(10);
+    l2.InsertarInicio(11);
+    l2.InsertarFinal(12);
+    l2.Mostrar();
+	return 0;
 }
-
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
