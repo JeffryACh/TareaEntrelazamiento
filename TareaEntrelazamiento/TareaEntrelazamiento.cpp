@@ -194,7 +194,7 @@ void lista::InsertarFinal(int v)//76
 }
 
 /*
-* Insertar al final, esta funcion inserta al final de la lista
+* Insertar en una posicion, esta funcion inserta en una posicion especifica de la lista
 * 
 * @Param int v, es el valor del nodo
 * 
