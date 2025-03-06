@@ -85,6 +85,7 @@ public:
     void BorrarInicio();
     void borrarPosicion(int pos);
     int largoLista();// retorno un valor numerico
+    void Entrelazar(lista l1, lista l2);
 
 
 private:
@@ -384,5 +385,7 @@ int main()
     l2.InsertarInicio(11);
     l2.InsertarFinal(12);
     l2.Mostrar();
+    lista l3;
+    // l3.Entrelazar(l1, l2);
 	return 0;
 }
