@@ -127,7 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ListaSimple.cpp" />
     <ClCompile Include="TareaEntrelazamiento.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListaSimple.h" />
+    <ClInclude Include="Nodo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
