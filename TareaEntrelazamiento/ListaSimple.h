@@ -30,16 +30,16 @@ public:
     */
     ~lista();//destructor
 
-    void InsertarInicio(int v);//No retornan nada
+    void InsertarInicio(int v);
     void InsertarFinal(int v);
     void InsertarPos(int v, int pos);
-    bool ListaVacia() { return primero == NULL; } //retorna True o False
-    void Mostrar();//imprimir
+    bool ListaVacia() { return primero == NULL; }
+    void Mostrar();
     void BorrarFinal();
     void BorrarInicio();
     void borrarPosicion(int pos);
-    int largoLista();// retorno un valor numerico
-    bool buscarNumeroEnLista(int v, lista l1);//retorna True o False
+    int largoLista();
+    bool buscarNumeroEnLista(int v, lista l1);
     bool largoCorrecto(lista L1); 
     //void Entrelazar(lista l1, lista l2);
 
