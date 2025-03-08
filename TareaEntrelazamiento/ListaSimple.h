@@ -40,7 +40,10 @@ public:
     void borrarPosicion(int pos);
     int largoLista();
     bool buscarNumeroEnLista(int v, lista l1);
-    bool largoCorrecto(lista L1); 
+    bool largoCorrecto();
+    bool elementoValido(int v);
+    bool elementosDiferentesEnLista(lista &l1);
+    bool elementosDiferentes();
     //void Entrelazar(lista l1, lista l2);
 
 

@@ -53,7 +53,17 @@ int lista::largoLista() {
         return cont;
         cout << endl;
     }
+}
 
+/*
+* Elemento valido, esta funcion verifica si el elemento es valido, entero positivo
+*
+* @Param int pV, es el valor del nodo
+* 
+* @Return bool, true si es valido y false si no
+*/
+bool lista::elementoValido(int pV) {
+    return pV >= 0;
 }
 
 /*
@@ -310,6 +320,54 @@ bool lista::buscarNumeroEnLista(int pV, lista pL) {
 *
 * @Return bool, true si el largo es multiplo de 6, false si no
 */
-bool lista::largoCorrecto(lista pL) {
-    return (pL.largoLista() % 6) == 0;
+bool lista::largoCorrecto() {
+    return (largoLista() % 6) == 0;
+}
+
+/*
+* Elementos Diferentes En Lista, esta funcion verifica si los elementos de las lista son diferentes
+*
+* @Param lista pL1, es la lista 1
+*
+* @Param lista pL2, es la lista 2
+*
+* @Return bool, true si los elementos son diferentes, false si no
+*/
+bool lista::elementosDiferentesEnLista(lista &pL1) {
+    pnodo aux1 = primero;
+    pnodo aux2 = pL1.primero;
+    while (aux1 != NULL) {
+        while (aux2 != NULL) {
+            if (aux1->valor == aux2->valor) {
+                return false;
+            }
+            aux2 = aux2->siguiente;
+        }
+        aux2 = pL1.primero;
+        aux1 = aux1->siguiente;
+    }
+    return true;
+}
+
+
+/*
+* Elementos Diferentes, esta funcion verifica si los elementos de la lista internamente son diferentes
+*
+* @Param lista pL1, es la lista 1
+*
+* @Return bool, true si los elementos son diferentes, false si no
+*/
+bool lista::elementosDiferentes() {
+    pnodo aux1 = primero;
+	while (aux1 != NULL) {
+		pnodo aux2 = aux1->siguiente;
+		while (aux2 != NULL) {
+			if (aux1->valor == aux2->valor) {
+				return false;
+			}
+			aux2 = aux2->siguiente;
+		}
+		aux1 = aux1->siguiente;
+	}
+	return true;
 }
