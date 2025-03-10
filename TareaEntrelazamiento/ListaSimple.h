@@ -37,14 +37,16 @@ public:
     void Mostrar();
     void BorrarFinal();
     void BorrarInicio();
-    void borrarPosicion(int pos);
-    int largoLista();
-    bool buscarNumeroEnLista(int v, lista l1);
-    bool largoCorrecto();
-    bool elementoValido(int v);
-    bool elementosDiferentesEnLista(lista &l1);
-    bool elementosDiferentes();
-    //void Entrelazar(lista l1, lista l2);
+    void BorrarPosicion(int pos);
+    int LargoLista();
+    bool BuscarNumeroEnLista(int v, lista l1);
+    bool LargoCorrecto();
+    bool ElementoValido(int v);
+    bool ElementosDiferentesEnLista(lista &l1);
+    bool ElementosDiferentes();
+    bool ListaPositiva();
+    void BorrarLista();
+    void Entrelazar(lista &pL1, lista &pL2);
 
 
 private:
