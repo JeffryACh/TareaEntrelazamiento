@@ -47,6 +47,7 @@ public:
     bool ListaPositiva();
     void BorrarLista();
     void Entrelazar(lista &pL1, lista &pL2);
+	void Entrelazar2(lista &pL1);
 
 
 private:

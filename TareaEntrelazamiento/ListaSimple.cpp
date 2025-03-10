@@ -382,15 +382,14 @@ bool lista::ElementosDiferentes() {
 */
 bool lista::ListaPositiva()
 {
-    bool check = true;
     pnodo aux1 = primero;
     while (aux1 != NULL) 
     {
         if (!ElementoValido(aux1->valor))
-            check = false;
+            return false;
         aux1 = aux1->siguiente;
     }
-    return check;
+    return true;
 }
 
 
@@ -435,7 +434,7 @@ void lista::BorrarLista()
 */
 void lista::Entrelazar(lista &pL1, lista &pL2)
 {
-    if ((!pL1.ListaVacia()) && (pL2.ListaVacia()))
+    if ((!pL1.ListaVacia()) && (!pL2.ListaVacia()))
     {
         if (pL1.LargoLista() == pL2.LargoLista())
         {
@@ -505,6 +504,120 @@ void lista::Entrelazar(lista &pL1, lista &pL2)
 
                             //Eliminar todos los nodos de la lista
                             pL1.BorrarLista();
+
+                            return;
+                        }
+                        else
+                        {
+                            cout << "Error: Las listas contienen elementos numericos iguales entre si" << endl;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        cout << "Error: Una o ambas listas contienen elementos repetidos dentro de si mismas" << endl;
+                        return;
+                    }
+                }
+                else
+                {
+                    cout << "Error: Uno o mas elementos dentro de las listas son numeros negativos" << endl;
+                    return;
+                }
+            }
+            else
+            {
+                cout << "Error: Los elementos de una o ambas listas nos son multiplos de 6" << endl;
+                return;
+            }
+        }
+        else
+        {
+            cout << "Error: La cantidad de elementos de una o ambas listas no son iguales" << endl;
+            return;
+        }
+    }
+    else
+    {
+        cout << "Error: Las listas estan vacias" << endl;
+        return;
+    }
+}
+
+
+void lista::Entrelazar2(lista& pL1)
+{
+    
+    if ((!pL1.ListaVacia()) && (!ListaVacia()))
+    {
+        if (pL1.LargoLista() == LargoLista())
+        {
+            if (pL1.LargoCorrecto() && LargoCorrecto())
+            {
+                if (pL1.ListaPositiva() && ListaPositiva())
+                {
+                    if (pL1.ElementosDiferentes() && ElementosDiferentes())
+                    {
+                        if (pL1.ElementosDiferentesEnLista(*this))
+                        {
+                            pnodo aux1 = primero;
+                            pnodo aux2 = pL1.primero;
+                            pnodo temp = aux1->siguiente;
+
+                            int cont = 1;
+                            int larg = LargoLista();
+
+                            while (cont < larg - 1)
+                            {
+                                //Primera iteración
+                                if (cont == 1)
+                                {
+                                    //temp = aux1->siguiente;
+                                    aux1->siguiente = aux2->siguiente->siguiente;
+                                    aux1 = aux1->siguiente;
+                                }
+                                else if (cont % 2 != 0) //Si la iteración es impar
+                                {
+                                    aux1 = aux1->siguiente;
+                                    temp = aux1->siguiente;
+                                    aux1->siguiente = aux2->siguiente->siguiente;
+                                    aux1 = aux2->siguiente->siguiente;
+                                }
+                                else //Si es par
+                                {
+                                    aux2 = aux2->siguiente;
+                                    aux2->siguiente = temp;
+
+                                    aux2 = aux1;
+                                    aux1 = temp;
+                                }
+                                cont++;
+                            }
+                            //Ultima iteración
+                            aux1 = aux1->siguiente;
+                            temp = aux1->siguiente;
+                            aux1->siguiente = pL1.primero;
+                            aux1 = aux1->siguiente;
+
+                            aux2 = aux2->siguiente;
+                            aux2->siguiente = temp;
+                            aux2 = temp;
+
+                            //Mostrar listas entrelazadas.
+                            cout << "Lista 1 entrelazada: " << endl;
+                            Mostrar();
+                            cout << "Lista 2 entrelazada: " << endl;
+                            pL1.Mostrar();
+
+                            //Borrar listas para evitar problemas a la hora de eliminar referencias:
+                            //Eliminar referencia de la lista2
+                            while (pL1.primero != NULL)
+                            {
+                                pL1.primero = pL1.primero->siguiente;
+                            }
+
+                            //Eliminar todos los nodos de la lista
+                            BorrarLista();
 
                             return;
                         }
