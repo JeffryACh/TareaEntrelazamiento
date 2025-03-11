@@ -618,7 +618,7 @@ void lista::Entrelazar(lista& pL1) {
         {
             aux1 = aux1->siguiente;
             temp = aux1->siguiente;
-            aux1 = aux1->siguiente;
+            aux1->siguiente = NULL;
 
             aux2 = aux2->siguiente;
             aux2->siguiente = temp;
@@ -626,16 +626,20 @@ void lista::Entrelazar(lista& pL1) {
         }
 
         //Mostrar listas entrelazadas.
-        cout << "Lista 1 entrelazada: " << endl;
+        cout << "Lista 1 entrelazada: " << LargoLista() << endl;
         Mostrar();
-        cout << "Lista 2 entrelazada: " << endl;
+        cout << "Lista 2 entrelazada: " << pL1.LargoLista() << endl;
         pL1.Mostrar();
 
         //Borrar listas para evitar problemas a la hora de eliminar referencias:
         //Eliminar referencia de la lista2
-        while (pL1.primero != NULL) {
-            pL1.primero = pL1.primero->siguiente;
+        if ((larg / 2) % 2 != 0) {
+            while (pL1.primero != NULL) {
+                pL1.primero = pL1.primero->siguiente;
+            }
         }
+        else
+            pL1.BorrarLista();
 
         //Eliminar todos los nodos de la lista
         BorrarLista();
