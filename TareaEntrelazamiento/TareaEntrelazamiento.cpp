@@ -128,6 +128,7 @@ int main()
 
     l1.BorrarLista();
     l2.BorrarLista();
+    cout << endl;
 
     //Prueba 5: Prueba con 6 elementos.
     cout << "---------------------------------" << endl;
