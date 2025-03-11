@@ -328,9 +328,9 @@ bool lista::LargoCorrecto() {
 /*
 * Elementos Diferentes En Lista, esta funcion verifica si los elementos de las lista son diferentes
 *
-* @Param lista pL1, es la lista 1
+* @Param lista this, es la lista 1
 *
-* @Param lista pL2, es la lista 2
+* @Param lista pL1, es la lista 2
 *
 * @Return bool, true si los elementos son diferentes, false si no
 */
@@ -354,7 +354,7 @@ bool lista::ElementosDiferentesEnLista(lista &pL1) {
 /*
 * Elementos Diferentes, esta funcion verifica si los elementos de la lista internamente son diferentes
 *
-* @Param lista pL1, es la lista 1
+* @Param lista this, es la lista 1
 *
 * @Return bool, true si los elementos son diferentes, false si no
 */
@@ -376,7 +376,7 @@ bool lista::ElementosDiferentes() {
 /*
 * Esta funcion verifica si los elementos númericos de la lista son positivos mayores a 0.
 *
-* @Param lista pL1, es la lista 1
+* @Param lista this, es la lista 1
 *
 * @Return bool, true si los elementos son enteros positivos, false si no
 */
@@ -395,7 +395,7 @@ bool lista::ListaPositiva()
 /*
 * Borra todos los elementos de la lista
 * 
-* @Param lista pL1, es la lista 1
+* @Param lista this, es la lista 1
 * 
 * @Return void, no retorna nada.
 */
@@ -519,7 +519,20 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
     }
 }
 
-
+/*Entrelaza 2 listas de dos formas distintas para mostrarlas por pantalla y despues borrar las listas.
+* La primer lista muestra todos los elementos de ambas listas.
+* La segunda solo muestra algunos elementos.
+* Ambas listas deben contener números distintos mayores a 0.
+* Ambas listas deben de contener un número de elementos multiplo de 6
+* Ambas listas no deben contener elementos negativos ni tampoco repetidos.
+* Ambas listas no deben repetir elementos entre sí.
+*
+* @Param lista this, es la lista1
+*
+* @Param lista pL1, es la lista2
+*
+* @Return void, no retorna nada.
+*/
 void lista::Entrelazar2(lista& pL1)
 {
     if ((pL1.ListaVacia()) || (ListaVacia())) {
