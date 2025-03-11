@@ -33,11 +33,14 @@ public:
     void InsertarInicio(int v);
     void InsertarFinal(int v);
     void InsertarPos(int v, int pos);
+
     bool ListaVacia() { return primero == NULL; }
     void Mostrar();
+
     void BorrarFinal();
     void BorrarInicio();
     void BorrarPosicion(int pos);
+
     int LargoLista();
     bool BuscarNumeroEnLista(int v, lista l1);
     bool LargoCorrecto();
@@ -46,9 +49,9 @@ public:
     bool ElementosDiferentes();
     bool ListaPositiva();
     void BorrarLista();
+
     void Entrelazar(lista &pL1, lista &pL2);
 	void Entrelazar2(lista &pL1);
-
 
 private:
     pnodo primero; // Atributo de la clase
