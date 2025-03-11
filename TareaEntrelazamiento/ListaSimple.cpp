@@ -380,11 +380,9 @@ bool lista::ElementosDiferentes() {
 *
 * @Return bool, true si los elementos son enteros positivos, false si no
 */
-bool lista::ListaPositiva()
-{
+bool lista::ListaPositiva() {
     pnodo aux1 = primero;
-    while (aux1 != NULL) 
-    {
+    while (aux1 != NULL)  {
         if (!ElementoValido(aux1->valor))
             return false;
         aux1 = aux1->siguiente;
@@ -401,12 +399,10 @@ bool lista::ListaPositiva()
 */
 void lista::BorrarLista()
 {
-    if (ListaVacia())
-    {
+    if (ListaVacia()) {
         cout << "No hay elementos en la lista:" << endl;
     }
-    else
-    {
+    else {
         int cont = 0;
         int larg = LargoLista();
         while (cont < larg) {
@@ -424,15 +420,17 @@ void lista::BorrarLista()
 * Ambas listas deben de contener un número de elementos multiplo de 6
 * Ambas listas no deben contener elementos negativos ni tampoco repetidos.
 * Ambas listas no deben repetir elementos entre sí.
-*  
+* 
+* @Param lista this, lista parametro de relleno
+* 
 * @Param lista pL1, es la lista1
 * 
 * @Param lista pL2, es la lista2
 * 
 * @Return void, no retorna nada.
 */
-void lista::Entrelazar(lista& pL1, lista& pL2)
-{
+/*
+void lista::EntrelazarThisBasura(lista& pL1, lista& pL2) {
     bool check = true;
     if ((pL1.ListaVacia()) || (pL2.ListaVacia())) {
         cout << "Error: Una o ambas listas estan vacias" << endl;
@@ -473,15 +471,15 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
                 aux1->siguiente = aux2->siguiente->siguiente;
                 aux1 = aux1->siguiente;
             }
-            else if (cont % 2 != 0) //Si la iteración es impar
-            {
+            //Si la iteración es impar
+            else if (cont % 2 != 0) { 
                 aux1 = aux1->siguiente;
                 temp = aux1->siguiente;
                 aux1->siguiente = aux2->siguiente->siguiente;
                 aux1 = aux2->siguiente->siguiente;
             }
-            else //Si es par
-            {
+            //Si es par
+            else { 
                 aux2 = aux2->siguiente;
                 aux2->siguiente = temp;
 
@@ -491,6 +489,8 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
             cont++;
         }
         //Ultima iteración
+        if ((larg / 2) % 2 != 0)
+        {
         aux1 = aux1->siguiente;
         temp = aux1->siguiente;
         aux1->siguiente = pL2.primero;
@@ -499,6 +499,17 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
         aux2 = aux2->siguiente;
         aux2->siguiente = temp;
         aux2 = temp;
+        }
+        else
+        {
+            aux1 = aux1->siguiente;
+            temp = aux1->siguiente;
+            aux1 = aux1->siguiente;
+
+            aux2 = aux2->siguiente;
+            aux2->siguiente = temp;
+            aux2 = temp;
+        }
 
         //Mostrar listas entrelazadas.
         cout << "Lista 1 entrelazada: " << endl;
@@ -518,6 +529,7 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
         return;
     }
 }
+*/
 
 /*Entrelaza 2 listas de dos formas distintas para mostrarlas por pantalla y despues borrar las listas.
 * La primer lista muestra todos los elementos de ambas listas.
@@ -533,8 +545,7 @@ void lista::Entrelazar(lista& pL1, lista& pL2)
 *
 * @Return void, no retorna nada.
 */
-void lista::Entrelazar2(lista& pL1)
-{
+void lista::Entrelazar(lista& pL1) {
     if ((pL1.ListaVacia()) || (ListaVacia())) {
         cout << "Error: Una o ambas listas estan vacias" << endl;
         return;
@@ -567,21 +578,22 @@ void lista::Entrelazar2(lista& pL1)
         int cont = 1;
         int larg = LargoLista();
 
-        while (cont < larg - 1)
-        {
+        while (cont < larg - 1) {
             //Primera iteración
             if (cont == 1) {
                 //temp = aux1->siguiente;
                 aux1->siguiente = aux2->siguiente->siguiente;
                 aux1 = aux1->siguiente;
             }
-            else if (cont % 2 != 0) { //Si la iteración es impar
+            //Si la iteración es impar
+            else if (cont % 2 != 0) { 
                 aux1 = aux1->siguiente;
                 temp = aux1->siguiente;
                 aux1->siguiente = aux2->siguiente->siguiente;
                 aux1 = aux2->siguiente->siguiente;
             }
-            else { //Si es par
+            //Si es par
+            else { 
                 aux2 = aux2->siguiente;
                 aux2->siguiente = temp;
 
@@ -591,14 +603,27 @@ void lista::Entrelazar2(lista& pL1)
             cont++;
         }
         //Ultima iteración
-        aux1 = aux1->siguiente;
-        temp = aux1->siguiente;
-        aux1->siguiente = pL1.primero;
-        aux1 = aux1->siguiente;
+        if ((larg / 2) % 2 != 0)
+        {
+            aux1 = aux1->siguiente;
+            temp = aux1->siguiente;
+            aux1->siguiente = pL1.primero;
+            aux1 = aux1->siguiente;
 
-        aux2 = aux2->siguiente;
-        aux2->siguiente = temp;
-        aux2 = temp;
+            aux2 = aux2->siguiente;
+            aux2->siguiente = temp;
+            aux2 = temp;
+        }
+        else
+        {
+            aux1 = aux1->siguiente;
+            temp = aux1->siguiente;
+            aux1 = aux1->siguiente;
+
+            aux2 = aux2->siguiente;
+            aux2->siguiente = temp;
+            aux2 = temp;
+        }
 
         //Mostrar listas entrelazadas.
         cout << "Lista 1 entrelazada: " << endl;
@@ -608,8 +633,7 @@ void lista::Entrelazar2(lista& pL1)
 
         //Borrar listas para evitar problemas a la hora de eliminar referencias:
         //Eliminar referencia de la lista2
-        while (pL1.primero != NULL)
-        {
+        while (pL1.primero != NULL) {
             pL1.primero = pL1.primero->siguiente;
         }
 

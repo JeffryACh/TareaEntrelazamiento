@@ -37,7 +37,7 @@ int main()
 
     cout << "Prueba 1: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1,l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
 
     l1.BorrarLista();
     l2.BorrarLista();
@@ -66,7 +66,7 @@ int main()
 
     cout << "Prueba 2: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
 
     l1.BorrarLista();
     l2.BorrarLista();
@@ -95,7 +95,7 @@ int main()
 
     cout << "Prueba 3: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
 
     l1.BorrarLista();
     l2.BorrarLista();
@@ -124,7 +124,7 @@ int main()
 
     cout << "Prueba 4: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
 
     l1.BorrarLista();
     l2.BorrarLista();
@@ -152,7 +152,7 @@ int main()
     l2.Mostrar();
 
     cout << "Prueba 5: Entrelazamiento de listas: " << endl;
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
     //l3.Entrelazar(l1, l2);
 
     l1.BorrarLista();
@@ -194,7 +194,7 @@ int main()
 
     cout << "Prueba 6: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
     cout << endl;
 
     //Prueba 7: Listas Vacias.
@@ -223,13 +223,14 @@ int main()
 
     cout << "Prueba 7: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
     l2.BorrarLista();
 
     cout << endl;
     
-    /*
-    //Prueba 8: Listas de mas elementos.
+    
+    //Prueba 8: Listas de mas de 6 elementos.
+    
     cout << "---------------------------------" << endl;
     cout << "Prueba 8: Listas de mas elementos." << endl;
     l1.InsertarInicio(1);
@@ -266,9 +267,61 @@ int main()
 
     cout << "Prueba 8: Entrelazamiento de listas: " << endl;
     //l3.Entrelazar(l1, l2);
-    l1.Entrelazar2(l2);
+    l1.Entrelazar(l2);
     cout << endl;
 
+    //Prueba 8: Listas de mas de 12 elementos.
+
+    cout << "---------------------------------" << endl;
+    cout << "Prueba 8: Listas de mas elementos." << endl;
+    l1.InsertarInicio(1);
+    l1.InsertarFinal(2);
+    l1.InsertarFinal(3);
+    l1.InsertarFinal(4);
+    l1.InsertarFinal(5);
+    l1.InsertarFinal(6);
+    l1.InsertarFinal(7);
+    l1.InsertarFinal(8);
+    l1.InsertarFinal(9);
+    l1.InsertarFinal(10);
+    l1.InsertarFinal(11);
+    l1.InsertarFinal(12);
+    l1.InsertarInicio(13);
+    l1.InsertarFinal(14);
+    l1.InsertarFinal(15);
+    l1.InsertarFinal(16);
+    l1.InsertarFinal(17);
+    l1.InsertarFinal(18);
+
+    l2.InsertarFinal(19);
+    l2.InsertarFinal(20);
+    l2.InsertarFinal(21);
+    l2.InsertarFinal(22);
+    l2.InsertarFinal(23);
+    l2.InsertarFinal(24);
+    l2.InsertarInicio(25);
+    l2.InsertarFinal(26);
+    l2.InsertarFinal(27);
+    l2.InsertarFinal(28);
+    l2.InsertarFinal(29);
+    l2.InsertarFinal(30);
+    l2.InsertarFinal(31);
+    l2.InsertarFinal(32);
+    l2.InsertarFinal(33);
+    l2.InsertarFinal(34);
+    l2.InsertarFinal(35);
+    l2.InsertarFinal(36);
+
+    cout << "Restableciendo listas: " << endl;
+    l1.Mostrar();
+    l2.Mostrar();
+
+
+    cout << "Prueba 8: Entrelazamiento de listas: " << endl;
+    //l3.Entrelazar(l1, l2);
+    l1.Entrelazar(l2);
+    cout << endl;
+    
 	return 1;
-    */
+    
 }
