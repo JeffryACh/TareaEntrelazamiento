@@ -618,7 +618,8 @@ void lista::Entrelazar(lista& pL1) {
         {
             aux1 = aux1->siguiente;
             temp = aux1->siguiente;
-            aux1->siguiente = NULL;
+            aux1->siguiente = primero;
+            aux1 = aux1->siguiente;
 
             aux2 = aux2->siguiente;
             aux2->siguiente = temp;
@@ -632,18 +633,18 @@ void lista::Entrelazar(lista& pL1) {
         pL1.Mostrar();
 
         //Borrar listas para evitar problemas a la hora de eliminar referencias:
-        //Eliminar referencia de la lista2
+        //Eliminar todos los nodos de la lista
         if ((larg / 2) % 2 != 0) {
             while (pL1.primero != NULL) {
                 pL1.primero = pL1.primero->siguiente;
             }
+            BorrarLista();
         }
         else
+            while (primero != NULL) {
+                primero = primero->siguiente;
+            }
             pL1.BorrarLista();
-
-        //Eliminar todos los nodos de la lista
-        BorrarLista();
-
         return;
     }
 }
